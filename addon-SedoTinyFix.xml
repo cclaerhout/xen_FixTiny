@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="SedoTinyFix" title="TinyMCE Fix" version_string="0.6.3" version_id="15" url="http://xenforo.com/community/resources/tinymce-fix.1162/" install_callback_class="Sedo_FixTiny_Installer" install_callback_method="install" uninstall_callback_class="Sedo_FixTiny_Installer" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="controller_pre_dispatch" execute_order="10" callback_class="Sedo_FixTiny_Listener_ControllerPreDispatch" callback_method="Diktat" active="1" description="Turn off Overlay edit for mobiles"/>
+    <listener event_id="load_class_bb_code" execute_order="10" callback_class="Sedo_FixTiny_Listener_BbCode" callback_method="listen" active="1" description="BbCode Class Listener"/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="Sedo_FixTiny_Listener_ControllerPublic" callback_method="listen" active="1" description="Listen ControllerPublic - editor"/>
+    <listener event_id="load_class_datawriter" execute_order="10" callback_class="Sedo_FixTiny_Listener_Datawriter" callback_method="listen" active="1" description="Datawriter Cass Listener"/>
+    <listener event_id="load_class_view" execute_order="10" callback_class="Sedo_FixTiny_Listener_ViewPublic" callback_method="listen" active="1" description="ViewPublic Listener"/>
+    <listener event_id="template_hook" execute_order="10" callback_class="Sedo_FixTiny_Listener_Templates" callback_method="listenhooks" active="1" description="Modify TinyMCE Template hook to fix code"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <optiongroups>
+    <group group_id="SedoTinyFix" display_order="9999" debug_only="0"/>
+    <option option_id="tinymce_fix_housewife_tabs" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SedoTinyFix" display_order="200"/>
+    </option>
+    <option option_id="tinymce_fix_housewife_tabs_db" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SedoTinyFix" display_order="210"/>
+    </option>
+    <option option_id="tinymce_fix_mobile" edit_format="callback" data_type="string" can_backup="1">
+      <default_value>no</default_value>
+      <edit_format_params>Sedo_FixTiny_Options_Factory::check_mobile</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SedoTinyFix" display_order="20"/>
+    </option>
+    <option option_id="tinymce_fix_mobile_disableoverlay" edit_format="select" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params>1={xen:phrase tinymce_fix_mobile_yes}
+0={xen:phrase tinymce_fix_mobile_no}</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SedoTinyFix" display_order="40"/>
+    </option>
+    <option option_id="tinymce_fix_mobile_opt_reverse" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SedoTinyFix" display_order="30"/>
+    </option>
+    <option option_id="tinymce_fix_overlay" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SedoTinyFix" display_order="10"/>
+    </option>
+    <option option_id="tinymce_fix_pacman_olul" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SedoTinyFix" display_order="110"/>
+    </option>
+    <option option_id="tinymce_fix_popup_overlay" edit_format="select" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params>1={xen:phrase tinymce_fix_mobile_yes}
+0={xen:phrase tinymce_fix_mobile_no}</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SedoTinyFix" display_order="400"/>
+    </option>
+    <option option_id="tinymce_fix_tagspolution" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SedoTinyFix" display_order="300"/>
+    </option>
+    <option option_id="tinymce_fix_tagspolution_prepaser_active" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SedoTinyFix" display_order="310"/>
+    </option>
+    <option option_id="tinymce_fix_tagspolution_tags" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value>left,center,right,b,i,u,s,font,color,size</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SedoTinyFix" display_order="320"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="option_group_SedoTinyFix" version_id="0" version_string="1"><![CDATA[TinyMCE Fix]]></phrase>
+    <phrase title="option_group_SedoTinyFix_description" version_id="0" version_string="1"><![CDATA[Options for "TinyMCE Fix"]]></phrase>
+    <phrase title="option_tinymce_fix_housewife_tabs" version_id="0" version_string="1"><![CDATA[[BUG] The Housewife effect: cleans all tabs when toggle bbcode <=> html [1]]]></phrase>
+    <phrase title="option_tinymce_fix_housewife_tabs_db" version_id="0" version_string="1"><![CDATA[[BUG] The Housewife effect: cleans all tabs when toggle bbcode <=> html [2]]]></phrase>
+    <phrase title="option_tinymce_fix_housewife_tabs_db_explain" version_id="0" version_string="1"><![CDATA[Do you want to activate this patch? <a href="http://xenforo.com/community/threads/tabs-in-wysiwyg-mode.22940/"  target="_blank">See bug description here</a>.<br /><br />
+This second part allows to save your message with tabs inside the database. Your messages will also display tabs to readers even if those tabs will become spaces when messages are edited with the Rich Text Editor.<br /><br />
+This Patch is automatic but will only work in forum messages and conversations. If you want to extend it to all your XenForo System, please consider to switch off that automatic patch and manually edit one of your file - See Part 2 (and only this one) in this <a href="http://xenforo.com/community/threads/tabs-in-wysiwyg-mode.22940/#post-433396"  target="_blank">message</a>. It couldn't been done automatically because XenForo is missing a few listeners.]]></phrase>
+    <phrase title="option_tinymce_fix_housewife_tabs_explain" version_id="0" version_string="1"><![CDATA[Do you want to activate this patch? <a href="http://xenforo.com/community/threads/tabs-in-wysiwyg-mode.22940/#post-433396"  target="_blank">See bug description here</a>.<br /><br />
+First thing to know: in Html,<b> tabs do not exist</b>, so they just can be emulated. XenForo rich text editor (TinyMCE) is using Html with a parser to convert some tags in Bb Codes. So in this Rte editor, the tabs will need to be emulated with four none-breaking spaces. <br /><br />The XenForo Standard Editor, which is basically a simple textarea, can support tabs (it is not Html). This first part of the code will manage the tabs in the Standard Editor and the conversion between the two editors.]]></phrase>
+    <phrase title="option_tinymce_fix_mobile" version_id="2" version_string="0.3"><![CDATA[Activate TinyMCE on mobile devices?]]></phrase>
+    <phrase title="option_tinymce_fix_mobile_disableoverlay" version_id="2" version_string="0.3"><![CDATA[Disable Overlay Edit on Mobiles]]></phrase>
+    <phrase title="option_tinymce_fix_mobile_disableoverlay_explain" version_id="2" version_string="0.3"><![CDATA[When Editing a message with TinyMCE on a mobile device, if the editing window is an overlay the caret will be extremely hard to control. Select 'yes' if you want to fix this problem. If you don't use TinyMCE (the RTE editor), the overlay edition will still work.]]></phrase>
+    <phrase title="option_tinymce_fix_mobile_explain" version_id="11" version_string="0.6"><![CDATA[To use this option, you will must manually edit  one file, <a href="http://xenforo.com/community/threads/tinymce-fix.39387/page-2#post-434565" target="_blank">see here how to do it</a>. A third option named "Only tablets" will be available if you have installed <a href="http://xenforo.com/community/resources/browser-detection-mobile-msie.1098/" target="_blank">this addon</a>.<br />
+<br />
+<b>New:</b> If you select to activate TinyMCE on mobiles devices (so if you select the 'yes' option), your members can still disable the RTE editor in their options if their mobile is not compatible.]]></phrase>
+    <phrase title="option_tinymce_fix_mobile_opt_reverse" version_id="11" version_string="0.6"><![CDATA[User option reverse?]]></phrase>
+    <phrase title="option_tinymce_fix_mobile_opt_reverse_explain" version_id="11" version_string="0.6"><![CDATA[The default sql value for the user option to use TinyMCE on mobile is 1. So the normal behaviour is:<br />
+<br />
+1 => TinyMCE is activated on user mobile device<br />
+0 => TinyMCE is not activated on user mobile device<br />
+<br />
+You can reverse this behaviour. On a fresh install, it will allow you to disable TinyMCE by default for all users. Of course don't change this behaviour after that many of your users have customized their options.<br />
+<br />
+This option will only work if you have selected to use TinyMCE on mobile devices, which is <b>NOT</b> recommended.]]></phrase>
+    <phrase title="option_tinymce_fix_overlay" version_id="2" version_string="0.3"><![CDATA[[IMPORTANT] TinyMCE Template Code fix]]></phrase>
+    <phrase title="option_tinymce_fix_overlay_explain" version_id="2" version_string="0.3"><![CDATA[Since the version 0.3 of this addon, the outdated TinyMCE version of XenForo is replaced with the last one. But a template edit must be done. This addon will automatically do it for you. <br/><br/> If you prefer to edit manually this template, just disable this fix, and do the following replacement inside the template <b>editor_js_setup</b>:<br/><br/>
+<span style="text-decoration:underline">Search:</span><br />
+<b>tinyMCE.dom.Event._pageInit(window); // for ajax loads</b><br /><br/>
+<span style="text-decoration:underline">Replace with:</span><br />
+<b>//tinyMCE.dom.Event._pageInit(window); // for ajax loads</b>
+<br /><br />
+<b>Note:</b> if you want to go back to the XenForo original version of TinyMCE, you'll find the original files inside the archive of this addon.]]></phrase>
+    <phrase title="option_tinymce_fix_pacman_olul" version_id="0" version_string="0.1"><![CDATA[[BUG] The PacMan effect: eats line breaks after list items]]></phrase>
+    <phrase title="option_tinymce_fix_pacman_olul_explain" version_id="0" version_string="0.1"><![CDATA[Do you want to activate this patch? <a href="http://xenforo.com/community/threads/editor-removes-a-line-break-after-list-items.7432/"  target="_blank">See bug description here</a>]]></phrase>
+    <phrase title="option_tinymce_fix_popup_overlay" version_id="6" version_string="0.43"><![CDATA[Activate fast popup overlay?]]></phrase>
+    <phrase title="option_tinymce_fix_popup_overlay_explain" version_id="6" version_string="0.43"><![CDATA[This option will replace the TinyMCE inline popups by a customised function based on the jQueryTools Overlay for the following buttons: url, img, media & code. <br />
+<br />
+The only button which will continue to use the original TinyMCE plugin is the color picker. Reason: too much Javascript to modify.]]></phrase>
+    <phrase title="option_tinymce_fix_tagspolution" version_id="0" version_string="0.1"><![CDATA[[BUG] The Pollution effect: duplicates Bb codes per line in Standard Editor]]></phrase>
+    <phrase title="option_tinymce_fix_tagspolution_explain" version_id="3" version_string="0.3"><![CDATA[Do you want to activate this patch? <a href="http://xenforo.com/community/threads/will-new-xenforo-get-new-ck-editor-4.39212/#post-432527"  target="_blank">See bug description here</a>.<br /><br />
+This patch will also clean empty Bb Codes both in Standard editor and Rte Editor. This cleaner function in the Rte Editor will only work in Posts & Conversations. <span style="text-decoration: line-through;">f you want a full fix, <a href="http://xenforo.com/community/threads/tinymce-fix.39387/#post-433971"  target="_blank">please read this</a></span>.(not needed anymore)]]></phrase>
+    <phrase title="option_tinymce_fix_tagspolution_prepaser_active" version_id="4" version_string="0.4"><![CDATA[Activate pre-parser?]]></phrase>
+    <phrase title="option_tinymce_fix_tagspolution_prepaser_active_explain" version_id="5" version_string="0.42"><![CDATA[This "pre-parser" only activates itself in some situations (too hard to explain) when the message content is converted from Bb Codes to HTML. It will then generate an artificial "tag pollution" to avoid problems in HTML.<br />
+<br />
+<b>If you see any problems when you convert a Bb Code text to Html inside the editor, uncheck this option.</b><br />
+<br />
+This option is unchecked by default. I let you activate it  make some tests with one of your complex message layout to verify nothing is wrong.]]></phrase>
+    <phrase title="option_tinymce_fix_tagspolution_tags" version_id="2" version_string="0.3"><![CDATA[Guilty tags]]></phrase>
+    <phrase title="option_tinymce_fix_tagspolution_tags_explain" version_id="3" version_string="0.3"><![CDATA[Enter here the guilty tags. Each tags must be without square brackets ([]) and must be separated with a coma. Default values: <b>left,center,right,b,i,u,s,font,color,size </b>]]></phrase>
+    <phrase title="tinyfix_rte_mobile_desc" version_id="10" version_string="0.54"><![CDATA[Use the rich text editor with <b>your</b> mobile device?]]></phrase>
+    <phrase title="tinyfix_rte_mobile_explain" version_id="10" version_string="0.54"><![CDATA[If your mobile device is not compatible with the Rich Text Editor, just uncheck this option.]]></phrase>
+    <phrase title="tinymce_fix_mobile_no" version_id="2" version_string="0.3"><![CDATA[No]]></phrase>
+    <phrase title="tinymce_fix_mobile_tabletsonly" version_id="2" version_string="0.3"><![CDATA[Only tablets]]></phrase>
+    <phrase title="tinymce_fix_mobile_yes" version_id="2" version_string="0.3"><![CDATA[Yes]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates>
+    <template title="editor_dialog_fast.css" version_id="7" version_string="0.5"><![CDATA[	.cust_popup {
+		width: 100%;
+		z-index: 200010;
+	}
+
+	.cust_popup_content {
+		display: block;
+		width: 350px;
+		box-shadow: 0 1px 3px 0 #C8C8D2;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: left;
+		{xen:property primaryContent.background}
+	}
+
+	.cust_heading {
+		border-radius: 0 0 0 0;
+	}
+
+	.cust_popup .primaryContent input,
+	.cust_popup .secondaryContent input {
+		font-size: 15px;
+		padding: 5px;
+	}]]></template>
+    <template title="editor_dialog_fast_code" version_id="6" version_string="0.43"><![CDATA[<xen:require css="editor_dialog_fast.css" />
+<form method="post" class="section cust_popup">
+	<div class="cust_popup_content">
+		<h1 class="heading cust_heading">{xen:phrase insert_code}</h1>
+		<div class="secondaryContent">
+			{xen:phrase language}:
+			<select name="type" id="ctrl_type" class="textCtrl">
+				<option value="code">{xen:phrase general_code}</option>
+				<option value="php">PHP</option>
+				<option value="html">HTML</option>
+			</select>
+		</div>
+		<div class="primaryContent">
+			{xen:phrase code}:
+			<textarea name="code" id="ctrl_code" name="ctrl_code" style="display: block; width: 98%; height: 100px; resize: none" class="textCtrl code mceFocus"></textarea>
+		</div>
+	
+		<div class="sectionFooter">
+			<div style="float: right">
+				<input type="button" id="cancel" name="cancel" value="{xen:phrase cancel}" class="button close" />
+			</div>
+			<input type="submit" id="insert" name="insert" value="{xen:phrase insert}" class="tinyTrigger button primary" />
+		</div>
+		<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+	</div>
+</form>]]></template>
+    <template title="editor_dialog_fast_image" version_id="6" version_string="0.43"><![CDATA[<xen:require css="editor_dialog_fast.css" />
+<form method="post" class="section cust_popup">
+	<div class="cust_popup_content">
+		<h1 class="heading cust_heading">{xen:phrase insert_image}</h1>
+		<div class="primaryContent">
+			{xen:phrase enter_image_url}:
+			<input id="ctrl_src" name="src" type="text" class="textCtrl mceFocus" style="width: 99%" />
+		</div>
+		<div class="sectionFooter">
+			<div style="float: right">
+				<input type="button" name="cancel" value="{xen:phrase cancel}" class="button close" />
+			</div>
+			<input type="submit" name="insert" value="{xen:phrase insert}" class="tinyTrigger button primary" />
+		</div>
+		<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+	</div>
+</form>
+]]></template>
+    <template title="editor_dialog_fast_link" version_id="6" version_string="0.43"><![CDATA[<xen:comment>Can't use this:
+	<xen:require js="js/tinymce/utils/form_utils.js" />
+</xen:comment>
+
+<xen:require js="js/tinymce/utils/validate.js" />
+<xen:require css="editor_dialog_fast.css" />
+
+<form method="post" class="section cust_popup">
+	<div class="cust_popup_content">
+		<h1 class="heading cust_heading">{xen:phrase insert_link}</h1>
+		<div class="primaryContent">
+			{xen:phrase enter_link_url}:
+			<input id="ctrl_url" name="href" type="text" class="textCtrl mceFocus" style="width: 99%" />
+		</div>
+		<div class="sectionFooter">
+			<div style="float: right">
+				<input type="button" id="cancel" name="cancel" value="{xen:phrase cancel}" class="button close" />
+			</div>
+			<input type="submit" id="insert" name="insert" value="{xen:phrase insert}" class="tinyTrigger button primary" />
+		</div>
+		<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+	</div>
+</form>]]></template>
+    <template title="editor_dialog_fast_media" version_id="6" version_string="0.43"><![CDATA[<xen:require css="editor_dialog_fast.css" />
+<form method="post" class="section cust_popup">
+	<div class="cust_popup_content">
+	<h1 class="heading cust_heading">{xen:phrase embed_media}</h1>
+	<div class="primaryContent">
+		{xen:phrase enter_media_url}:
+		<input id="ctrl_url" name="url" type="text" class="textCtrl mceFocus" style="width: 99%" />
+	</div>
+	<div class="secondaryContent">
+		{xen:phrase you_may_embed_media_from_following_sites}:
+		<xen:foreach loop="$sites" value="$site" count="$totalSites" i="$i">
+			<xen:if is="{$site.supported}">
+				<a href="{$site.site_url}" target="_blank" rel="nofollow">{$site.site_title}</a>;
+			</xen:if>
+		</xen:foreach>
+	</div>
+
+	<div class="sectionFooter">
+		<div style="float: right">
+			<input type="button" id="cancel" name="cancel" value="{xen:phrase cancel}" class="button close" />
+		</div>
+		<input type="submit" id="insert" name="insert" value="{xen:phrase embed}" class="tinyTrigger button primary" />
+	</div>
+	<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+	</div>
+</form>]]></template>
+    <template title="tinyfix_mobile_user_option" version_id="11" version_string="0.6"><![CDATA[	<xen:set var="$tinymce_fix_mobile"><xen:if is="{$xenOptions.tinymce_fix_mobile_opt_reverse}">{xen:if '{$visitor.tinyfix_rte_mobile} == 1', 0, 1}<xen:else />{$visitor.tinyfix_rte_mobile}</xen:if></xen:set>
+	<xen:set var="$tinymce_fix_mobile_chk">{xen:if '{$tinymce_fix_mobile} == 1', 'checked="checked"', ''}</xen:set>
+
+	<li>
+		<label for="ctrl_tinyfix_rte_mobile"><input type="checkbox" name="tinyfix_rte_mobile" value="1" id="ctrl_tinyfix_rte_mobile" {$tinymce_fix_mobile_chk} />
+			{xen:phrase tinyfix_rte_mobile_desc}
+			<p class="hint">{xen:phrase tinyfix_rte_mobile_explain}</p>
+		</label>
+	</li>]]></template>
+  </templates>
+  <bb_code_media_sites/>
+  <template_modifications>
+    <modification title="RTE Mobile" template_title="account_preferences" execute_order="10" modification_type="preg_replace" callback_class="" callback_method="" description="User field" version_id="10" version_string="0.54" active="1">
+      <search_value><![CDATA[#([ \t]*)<li>.+?ctrl_enable_rte(?s).+?</li>#i]]></search_value>
+      <replace_value><![CDATA[$1<xen:if is="{$xenOptions.tinymce_fix_mobile} == 'yes'">
+$1<xen:include template="tinyfix_mobile_user_option"></xen:include>
+$1</xen:if>
+$0]]></replace_value>
+    </modification>
+  </template_modifications>
+</addon>
