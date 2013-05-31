@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="SedoTinyFix" title="TinyMCE Fix" version_string="0.6.3" version_id="15" url="http://xenforo.com/community/resources/tinymce-fix.1162/" install_callback_class="Sedo_FixTiny_Installer" install_callback_method="install" uninstall_callback_class="Sedo_FixTiny_Installer" uninstall_callback_method="uninstall">
+<addon addon_id="SedoTinyFix" title="TinyMCE Fix" version_string="0.7.1" version_id="16" url="http://xenforo.com/community/resources/tinymce-fix.1162/" install_callback_class="Sedo_FixTiny_Installer" install_callback_method="install" uninstall_callback_class="Sedo_FixTiny_Installer" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>

@@ -2421,7 +2421,7 @@
 				});
 			} else {
 				ed.dom.setAttribs(e, {
-					href : href,
+					href : href
 				});
 			}
 
